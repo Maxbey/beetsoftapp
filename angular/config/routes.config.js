@@ -56,7 +56,7 @@ export function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvid
         })
         .state('app.dashboard_page', {
             url: '/dashboard',
-            data: {auth: false},
+            data: {auth: true},
             views: {
                 'main@': {
                     templateUrl: getView('dashboard-page')
