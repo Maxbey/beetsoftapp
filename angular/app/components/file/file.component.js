@@ -1,14 +1,23 @@
 class FileController{
-    constructor($http, $state){
+    constructor($http, $stateParams, $window){
         'ngInject';
 
         this.$http = $http;
-        this.$state = $state;
+        this.$stateParams = $stateParams;
+        this.$window = $window;
     }
 
     $onInit(){
+        this.$http.get('api/files/' + this.$stateParams.link)
+            .then((r) => {
+                this.file = r.data.data[0];
+            });
 
+    }
 
+    download(){
+
+        this.$window.open('/files/' + this.file.link + '/download', 'Download');
     }
 }
 

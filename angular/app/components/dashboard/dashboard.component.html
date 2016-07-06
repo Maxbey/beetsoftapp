@@ -1,11 +1,13 @@
 <md-list ng-cloack ng-if="vm.filesData" flex>
     <md-subheader class="md-no-sticky">My files</md-subheader>
-    <md-list-item class="md-3-line" ng-repeat="file in vm.filesData" ng-click="vm.download(file)">
+    <md-list-item class="md-3-line" ng-repeat="file in vm.filesData" ng-click="vm.go(file)">
         <div class="md-list-item-text" layout="column">
             <h3>Name: {{ file.name }}</h3>
             <h4>Size: {{ file.size }}</h4>
+            <h4>Open link: {{ file.link }}</h4>
             <p>Downloads count: {{ file.downloads_count }}</p>
         </div>
+        <md-button class="md-raised" ng-click="vm.deleteFile(file)">Delete</md-button>
         <md-divider></md-divider>
     </md-list-item>
     

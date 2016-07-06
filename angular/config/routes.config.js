@@ -22,6 +22,7 @@ export function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvid
 		})
 		.state('app.landing', {
             url: '/',
+            data: {auth: true},
             views: {
                 'main@': {
                     templateUrl: getView('landing')
@@ -46,6 +47,7 @@ export function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvid
         })
         .state('app.upload_page', {
             url: '/upload',
+            data: {auth: true},
             views: {
                 'main@': {
                     templateUrl: getView('upload-page')
@@ -54,9 +56,18 @@ export function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvid
         })
         .state('app.dashboard_page', {
             url: '/dashboard',
+            data: {auth: false},
             views: {
                 'main@': {
                     templateUrl: getView('dashboard-page')
+                }
+            }
+        })
+        .state('app.file_page', {
+            url: '/files/:link',
+            views: {
+                'main@': {
+                    templateUrl: getView('file-page')
                 }
             }
         });

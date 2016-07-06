@@ -35,6 +35,8 @@ $api->group(['middleware' => ['api']], function ($api) {
 //protected API routes with JWT (must be logged in)
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
     $api->post('im/files', 'StatisticsController@index');
+    $api->post('files/', 'FilesController@store');
+    $api->delete('files/{id}', 'FilesController@destroy');
 });
-Route::post('api/files', 'FilesController@store');
+
 Route::get('files/{link}/download', 'FilesController@download');
