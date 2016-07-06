@@ -51,5 +51,13 @@ export function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvid
                     templateUrl: getView('upload-page')
                 }
             }
+        })
+        .state('app.dashboard_page', {
+            url: '/dashboard',
+            views: {
+                'main@': {
+                    templateUrl: getView('dashboard-page')
+                }
+            }
         });
 }

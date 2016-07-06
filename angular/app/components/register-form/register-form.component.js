@@ -24,7 +24,7 @@ class RegisterFormController {
 			.then((response) => {
 				//remove this if you require email verification
 				this.$auth.setToken(response.data);
-				this.$state.go('app.upload_page');
+				this.$state.go('app.login');
 
 				this.ToastService.show('Successfully registered.');
 			})

@@ -27,14 +27,14 @@ $api->group(['middleware' => ['api']], function ($api) {
     $api->post('auth/register', 'Auth\AuthController@register');
 
     $api->get('files/{link}', 'FilesController@show');
-    $api->get('im', 'StatisticsController@index');
-    $api->get('files/{link}/download', 'FilesController@download');
+
+
 
 });
 
 //protected API routes with JWT (must be logged in)
 $api->group(['middleware' => ['api', 'api.auth']], function ($api) {
-
+    $api->post('im/files', 'StatisticsController@index');
 });
-
 Route::post('api/files', 'FilesController@store');
+Route::get('files/{link}/download', 'FilesController@download');

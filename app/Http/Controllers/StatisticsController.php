@@ -12,6 +12,6 @@ class StatisticsController extends Controller
     {
         $user = \JWTAuth::parseToken()->authenticate();
 
-        return $user->files;
+        return ['data' => $user->files];
     }
 }
