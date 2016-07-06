@@ -98,6 +98,8 @@ class FilesController extends Controller
 
         $this->fileRepository->delete($id);
 
+        \File::delete(public_path() . '/' . $file->path);
+
         return response('File successfully deleted', 202);
     }
 }
